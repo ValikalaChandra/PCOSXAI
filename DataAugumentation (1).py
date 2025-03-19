@@ -7,7 +7,7 @@ from PIL import Image
 
 # Check for GPU
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(f"🔥 Using device: {device}")
+print(f" Using device: {device}")
 
 # Define dataset paths
 base_input_path = "/kaggle/input/pcos-detection-using-ultrasound-images/data/train"
@@ -73,15 +73,15 @@ def augment_and_save_images(input_folder, output_folder, num_augmented):
                 aug_save_path = os.path.join(output_folder, aug_filename)
                 vutils.save_image(aug_img_tensor, aug_save_path)
 
-    print(f"✅ Augmentation completed for {input_folder}. Images saved in {output_folder}")
+    print(f" Augmentation completed for {input_folder}. Images saved in {output_folder}")
 
 # Apply augmentation to infected and non-infected images
 augment_and_save_images(infected_folder, augmented_infected_folder, infected_aug_per_image)
 augment_and_save_images(non_infected_folder, augmented_non_infected_folder, non_infected_aug_per_image)
 
 # Print paths for reference
-print("\n📂 Dataset Prepared:")
-print("✔️ Infected Images Path:", infected_folder)
-print("✔️ Non-Infected Images Path:", non_infected_folder)
-print("✔️ Augmented Infected Images Path:", augmented_infected_folder)
-print("✔️ Augmented Non-Infected Images Path:", augmented_non_infected_folder)
+print("\n Dataset Prepared:")
+print(" Infected Images Path:", infected_folder)
+print(" Non-Infected Images Path:", non_infected_folder)
+print(" Augmented Infected Images Path:", augmented_infected_folder)
+print(" Augmented Non-Infected Images Path:", augmented_non_infected_folder)
